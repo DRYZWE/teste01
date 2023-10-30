@@ -15,12 +15,23 @@ sudo tar -C /opt -xvzf go1.15.12.linux-amd64.tar.gz
 mkdir -p $HOME/go
 
 printf "\n\nInstalling NodeJs\n"
+echo "Instalando Node.js..."
 
-curl -sL https://deb.nodesource.com/setup_10.x -o nodesource_setup.sh
+# Adicione o repositório do Node.js e a chave GPG
+curl -fsSL https://deb.nodesource.com/gpgkey/nodesource.gpg.key | sudo gpg --dearmor -o /usr/share/keyrings/nodesource-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/nodesource-archive-keyring.gpg] https://deb.nodesource.com/node_14.x $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/nodesource.list
 
-sudo bash nodesource_setup.sh
+# Atualize o cache do apt
+sudo apt update
 
-sudo apt -y install nodejs
+# Instale o Node.js e o npm
+sudo apt install -y nodejs
+
+# Exiba a versão do Node.js e do npm instalados
+echo "Node.js $(node -v)"
+echo "npm $(npm -v)"
+
+echo "Node.js instalado com sucesso!"
 
 printf "\n\nInstalling Docker\n"
 
