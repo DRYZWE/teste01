@@ -14,7 +14,6 @@ sudo tar -C /opt -xvzf go1.15.12.linux-amd64.tar.gz
 
 mkdir -p $HOME/go
 
-printf "\n\nInstalling NodeJs\n"
 echo "Instalando Node.js..."
 
 # Adicione o repositório do Node.js e a chave GPG
