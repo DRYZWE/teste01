@@ -22,7 +22,7 @@ var Bike = assets.AssetType{
 			// Composite Key
 			Required: true,
 			IsKey:    true,
-			Tag:      "Owner"
+			Tag:      "Owner",
 			Label:    "Bike Owner",
 			DataType: "string",
 			Writers:  []string{`org2MSP`, "orgMSP"}, // This means only org2 can create the asset (others can edit)
